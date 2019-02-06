@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomeForm.Controller">
+   <children>
+      <TextArea fx:id="codeTuringMachine" prefWidth="240.0" text="q1 0 λ -&gt; q2 0 λ R N&#10;q1 1 λ -&gt; q2 1 λ R N&#10;q1 λ λ -&gt; q4 λ λ L R&#10;q2 0 λ -&gt; q3 0 λ R N&#10;q2 1 λ -&gt; q3 1 λ R N&#10;q2 λ λ -&gt; q7 λ - L R&#10;q3 0 λ -&gt; q1 0 # R L&#10;q3 1 λ -&gt; q1 1 # R L&#10;q3 λ λ -&gt; q7 λ - L R&#10;q4 0 # -&gt; q4 0 0 L R&#10;q4 1 # -&gt; q4 1 1 L R&#10;q4 λ λ -&gt; qz λ + R N&#10;q4 0 λ -&gt; q5 0 λ N L&#10;q4 1 λ -&gt; q5 1 λ N L&#10;q5 0 0 -&gt; q5 0 0 L L&#10;q5 1 1 -&gt; q5 1 1 L L&#10;q5 0 1 -&gt; q7 0 - L R&#10;q5 1 0 -&gt; q7 1 - L R&#10;q5 0 λ -&gt; q6 0 λ N R&#10;q5 1 λ -&gt; q6 1 λ N R&#10;q6 0 0 -&gt; q6 0 0 L R&#10;q6 1 1 -&gt; q6 1 1 L R&#10;q6 0 1 -&gt; q7 0 - L R&#10;q6 1 0 -&gt; q7 1 - L R&#10;q6 λ λ -&gt; q8 λ + N L&#10;q7 0 0 -&gt; q7 0 λ L R&#10;q7 0 1 -&gt; q7 0 λ L R&#10;q7 1 0 -&gt; q7 1 λ L R&#10;q7 1 1 -&gt; q7 1 λ L R&#10;q7 0 # -&gt; q7 0 λ L R&#10;q7 1 # -&gt; q7 1 λ L R&#10;q7 λ 0 -&gt; q7 λ λ N R&#10;q7 λ 1 -&gt; q7 λ λ N R&#10;q7 λ # -&gt; q7 λ λ N R&#10;q7 0 λ -&gt; q7 0 λ L L&#10;q7 1 λ -&gt; q7 1 λ L L&#10;q7 λ λ -&gt; q7 λ λ N L&#10;q7 0 - -&gt; q8 0 - L L&#10;q7 1 - -&gt; q8 1 - L L&#10;q7 λ - -&gt; q8 λ - N L&#10;q7 0 + -&gt; q8 0 + L L&#10;q7 1 + -&gt; q8 1 + L L&#10;q7 λ + -&gt; q8 λ + N L&#10;q8 0 0 -&gt; q8 0 λ L L&#10;q8 0 1 -&gt; q8 0 λ L L&#10;q8 1 0 -&gt; q8 1 λ L L&#10;q8 1 1 -&gt; q8 1 λ L L&#10;q8 λ 0 -&gt; q8 λ λ N L&#10;q8 λ 1 -&gt; q8 λ λ N L&#10;q8 0 λ -&gt; q8 0 λ N R&#10;q8 1 λ -&gt; q8 1 λ N R&#10;q8 λ λ -&gt; q8 λ λ R R&#10;q8 λ - -&gt; q8 λ - R N&#10;q8 λ + -&gt; q8 λ + R N&#10;q8 0 - -&gt; qz 0 - N N&#10;q8 0 + -&gt; qz 0 + N N&#10;q8 1 - -&gt; qz 1 - N N&#10;q8 1 + -&gt; qz 1 + N N">
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </TextArea>
+      <SplitPane dividerPositions="0.4858681022880215" prefHeight="400.0" prefWidth="760.0">
+        <items>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="inputData" prefHeight="30.0" prefWidth="356.0" text="L = { w^Rww^R | w ∈{0,1}*}&#9;&#9;&#9;&#9;A = { 0 , 1 , # , λ, +, -}&#10;&#10;" />
+                  <Label prefHeight="30.0" text="The content of the input tape" />
+                  <TextField fx:id="firstLine" onKeyPressed="#check" text="100110" />
+                  <Separator prefHeight="4.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <HBox prefHeight="32.0" prefWidth="318.0">
+                     <children>
+                        <Button fx:id="start" defaultButton="true" mnemonicParsing="false" onAction="#toStart" prefWidth="80.0" text="Start">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="stop" mnemonicParsing="false" onAction="#onStop" prefWidth="80.0" text="Stop">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="saveLogs" mnemonicParsing="false" onAction="#toSaveLogs" prefWidth="80.0" text="Save logs">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Separator prefHeight="4.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="workInfo" prefHeight="30.0" prefWidth="344.0">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator prefHeight="4.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="firstTape" prefHeight="30.0" text="λλλ">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="firstTapeCurrentPosition" text=" ^ ">
+                     <VBox.margin>
+                        <Insets top="-10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="twoTape" prefHeight="30.0" text="λλλ">
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="twoTapeCurrentPosition" text=" ^ ">
+                     <VBox.margin>
+                        <Insets top="-10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label prefHeight="30.0" text="Speed" />
+                  <Slider fx:id="speed" max="2500.0" value="2500.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Slider>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <BarChart fx:id="graphic">
+                    <xAxis>
+                      <CategoryAxis fx:id="bottom" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="left" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <Button mnemonicParsing="false" onAction="#onDisplayGraphic" text="Display graphic">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
